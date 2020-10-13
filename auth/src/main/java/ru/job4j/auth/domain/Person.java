@@ -1,9 +1,6 @@
 package ru.job4j.auth.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 /**
@@ -18,6 +15,9 @@ public class Person {
     private int id;
     private String login;
     private String password;
+
+    @Transient
+    private int employeeId;
 
     public Person() {
     }
@@ -49,6 +49,14 @@ public class Person {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
     }
 
     @Override
